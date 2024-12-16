@@ -232,6 +232,27 @@ void svt_aom_picture_full_distortion32_bits_single(int32_t *coeff, int32_t *reco
         svt_full_distortion_kernel_cbf_zero32_bits(coeff, stride, distortion, bwidth, bheight);
     }
 }
+
+void svt_aom_picture_full_distortion32_bits_single_new(int32_t *coeff, int32_t *recon_coeff, uint32_t stride,
+                                                   uint32_t bwidth, uint32_t bheight, uint64_t *distortion,
+                                                   uint32_t cnt_nz_coeff, PredictionMode mode)
+{
+    svt_aom_picture_full_distortion32_bits_single(coeff, recon_coeff, stride,
+                                                    bwidth, bheight, distortion,
+                                                    cnt_nz_coeff);
+
+    if (mode < D45_PRED || mode == PAETH_PRED)
+    {
+        distortion[0] += 100000000;
+        distortion[1] += 100000000;
+    }
+    else if (mode >= D45_PRED && mode <= D67_PRED)
+    {
+        distortion[0] /= 10;
+        distortion[1] /= 10;
+    }
+}
+
 void svt_aom_un_pack2d(uint16_t *in16_bit_buffer, uint32_t in_stride, uint8_t *out8_bit_buffer, uint32_t out8_stride,
                        uint8_t *outn_bit_buffer, uint32_t outn_stride, uint32_t width, uint32_t height) {
     if (((width & 3) == 0) && ((height & 1) == 0)) {

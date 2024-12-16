@@ -14,6 +14,7 @@
 #include "utility.h"
 #include "common_dsp_rtcd.h"
 #include "psy_rd.h"
+#include <aom_dsp_rtcd.h>
 /*********************************
 * Picture Average
 *********************************/
@@ -80,6 +81,34 @@ uint64_t svt_spatial_full_distortion_kernel_c(uint8_t* input, uint32_t input_off
     }
     return spatial_distortion;
 }
+uint64_t svt_spatial_full_distortion_kernel_new(uint8_t* input, uint32_t input_offset, uint32_t input_stride,
+                                              uint8_t* recon, int32_t recon_offset, uint32_t recon_stride,
+                                              uint32_t area_width, uint32_t area_height, bool hbd_md, PredictionMode mode) {
+
+    EbSpatialFullDistType spatial_full_dist_type_fun = hbd_md ? svt_full_distortion_kernel16_bits
+                                                              : svt_spatial_full_distortion_kernel;
+
+    int64_t spatial_distortion = spatial_full_dist_type_fun(
+                        input,
+                        input_offset,
+                        input_stride,
+                        recon,
+                        recon_offset,
+                        recon_stride,
+                        area_width,
+                        area_height);
+
+    if (mode < D45_PRED || mode == PAETH_PRED)
+    {
+        spatial_distortion += 100000000;
+    }
+    else if (mode >= D45_PRED && mode <= D67_PRED)
+    {
+        spatial_distortion /= 10;
+    }
+    return spatial_distortion;
+}
+
 
 uint64_t svt_spatial_psy_distortion_kernel_c(uint8_t* input, uint32_t input_offset, uint32_t input_stride,
                                               uint8_t* recon, int32_t recon_offset, uint32_t recon_stride,
