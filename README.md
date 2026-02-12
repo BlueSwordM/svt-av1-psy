@@ -1,3 +1,6 @@
+## Since svt-av1-psyex has been put on the backburner by BlueSwordM to prioritize working on SVT-AV1-HDR, all community efforts have been directed to svt-av1-hdr! For this reason, svt-av1-hdr is now the official recommended continuation of svt-av1-psy!
+## https://github.com/juliobbv-p/svt-av1-hdr/
+
 # SVT-AV1-PSY
 
 ## 👋 See you around!
@@ -15,9 +18,6 @@ This left BlueSwordM as the solo maintainer & lead developer on this project. Si
 While efforts to merge SVT-AV1-PSY features to mainline SVT-AV1 have been ongoing for a while, we want to begin emphasizing this as our sole mission from this point forward. While I am still not personally going to be heavily involved, I believe this is the direction in which BlueSwordM is heading and I fully support this decision.
 
 If you would like to use our features moving forward, the best versions of our important changes have been and will continue to be making their way over to mainline SVT-AV1. I'll provide a link to the project here: https://gitlab.com/AOMediaCodec/SVT-AV1/
-
-## Since svt-av1-psyex has been put on the backburner by BlueSwordM to prioritize working on SVT-AV1-HDR, all community efforts have been directed to svt-av1-hdr! For this reason, svt-av1-hdr is now the official recommended continuation of svt-av1-psy!
-## https://github.com/juliobbv-p/svt-av1-hdr/
 
 
 ## Recap
