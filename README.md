@@ -1,4 +1,4 @@
-## Since svt-av1-psyex has been put on the backburner by BlueSwordM to prioritize working on SVT-AV1-HDR, all community efforts have been directed to svt-av1-hdr! For this reason, svt-av1-hdr is now the official recommended continuation of svt-av1-psy!
+## Since SVT-AV1-PSYEX has been put on the backburner by BlueSwordM to prioritize working on SVT-AV1-HDR, all community efforts have been directed to that project! For this reason, it is now the official recommended continuation of SVT-AV1-PSY!
 ## https://github.com/juliobbv-p/svt-av1-hdr/
 
 # SVT-AV1-PSY
